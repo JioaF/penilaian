@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res){
-     req.session.loggedin = false;
+    req.session.loggedin = false;
     res.redirect('/');
 });
 

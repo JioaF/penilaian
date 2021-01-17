@@ -1,13 +1,7 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('./components/style.ejs') %> 
 <body>
-    <p>Hello <%= user %> </p>
-    <a href="/logout">Logout</a>
-
+   <%- include('./components/navbar.ejs') %> 
      <div>
         <h3>Data Siswa</h3>
         <table border="2">
@@ -52,6 +46,7 @@
                     <% } %> 
 
         </table>
-    </div> 
+    </div>
+    <%- include('./components/footer.ejs'); %>  
 </body>
 </html>
