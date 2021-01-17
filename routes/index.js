@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   h1:'Login',
 username:'Username',
 password:'Password'});
-req.session.destroy();
+req.session.loggedin = false;
 });
 
 /**GET post value & auth the login  */
@@ -23,7 +23,7 @@ router.post('/', function(req, res){
     conn.query('SELECT * FROM tab_user WHERE username = ? AND password = ?', 
     [username, password], function(error, results, fields){
       if(results.length > 0){
-        console.log(fields);
+        console.log(fields.name);
         req.session.loggedin = true,
         req.session.username = username,
         res.redirect('/dashboard');

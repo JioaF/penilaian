@@ -6,6 +6,52 @@
 </head>
 <body>
     <p>Hello <%= user %> </p>
-    <input type="button" value="Logout">
+    <a href="/logout">Logout</a>
+
+     <div>
+        <h3>Data Siswa</h3>
+        <table border="2">
+            <tr>
+                <th>No</th>
+                <th>Nis</th>
+                <th>Nama Lengkap</th>
+                <th>Kelas</th>
+                <th>Jurusan</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>No. Telp</th>
+                <th>Action</th>
+            </tr>
+            
+                <% if (data.length > 0) { %>
+                    <% var i = 1; %> 
+                    <% data.forEach(el => { %>
+                            <tr>
+                                <td><%=i; %></td>
+                                <td><%=el.nis   %> </td>
+                                <td><%=el.nama_lengkap   %> </td>
+                                <td><%=el.kelas   %> </td>
+                                <td><%=el.jurusan   %> </td>
+                                <td><%=el.tempat_lahir   %> </td>
+                                <td><%=el.tanggal_lahir   %> </td>
+                                <td><%=el.alamat   %> </td>
+                                <td><%=el.email  %> </td>
+                                <td><%=el.no_telp  %> </td>
+                                <td>
+                                    <a href="#">Edit</a>
+                                    <a href="#">Delete</a>
+                                </td>
+                            </tr>
+                        <% i++}); %>
+                <% } else { %>
+                        <tr>
+                            <td>No data Found</td>
+                        </tr>
+                    <% } %> 
+
+        </table>
+    </div> 
 </body>
 </html>
