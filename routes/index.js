@@ -7,7 +7,7 @@ var md5 = require('crypto-js/md5');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' , 
-  h1:'Login',
+  h3:'SMKN ##?',
 username:'Username',
 password:'Password'});
 req.session.destroy();

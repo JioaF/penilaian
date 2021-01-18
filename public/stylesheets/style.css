@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('/images/dark.jpg');
 }
 
 a {
   color: #00B7FF;
 }
+
+.container{
+  margin-top: 80px;
+  background-color: whitesmoke ;
+  padding: 40px;
+  border-style: groove;
+  border-color: dimgrey;
+  
+}
+
+.form-group{
+  font-size: 16px;
+}
+
+.footer{
+  padding: 13px;
+  color: #00B7FF;
+  text-align: center;
+}
+
