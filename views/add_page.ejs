@@ -1,0 +1,46 @@
+<html>
+    <%- include('./components/style.ejs') %>
+    <body>
+        <h3><%= text %></h3>
+        <form action="/add" method="POST">
+           <!-- <label>No</label>
+           <input type="" name="" required> <br> -->
+
+           <label>NISN</label>
+           <input type="number" name="nis"  required> <br>
+
+           <label>Nama Lengkap</label>
+           <input type="text" name="nama" maxlength="50" required> <br>
+
+           <label>Kelas</label>
+            <select name="kelas">
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select> <br>
+           
+           <label>Jurusan</label><br>
+           <input type="radio" name="jurusan" value="fiktif" required>Fiktif <br>
+           
+           <label>Tempat Lahir</label>
+           <input type="text" name="tempatl" maxlength="50" required > <br>
+           
+           <label>Tanggal Lahir</label>
+           <input type="date" name="tgll" required> <br>
+           
+           <label>Alamat</label>
+           <textarea name="alamat"  cols="30" rows="10" required></textarea> <br>
+           
+           <label>Email</label>
+           <input type="email" name="email" maxlength="50" required> <br>
+           
+           <label>No. Telp</label>
+           <input type="number" name="notelp" maxlength="15" required> <br>
+            
+           <input type="submit" value="Add">
+           <a href="/dashboard">Cancel</a>
+        </form>
+
+        <%- include('./components/footer.ejs'); %> 
+    </body> 
+</html>

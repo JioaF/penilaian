@@ -11,7 +11,8 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var logoutRouter = require('./routes/logout');
 var aboutRouter = require('./routes/about');
-var dashboardRouter = require('./routes/dashboard')
+var dashboardRouter = require('./routes/dashboard');
+var addRouter = require('./routes/add');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter)
 app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);
+app.use('/add', addRouter);
 
 /**
  * if come out with not found error 
