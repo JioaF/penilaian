@@ -10,5 +10,11 @@ module.exports = {
             } 
         });
     },
-    
+    delete : function(query, data){
+        conn.query(query, [data], function(err, results, fields){
+            if(err ) throw err;
+            console.log(results);
+            
+        });
+    }
 }
