@@ -1,17 +1,18 @@
 <html>
     <%- include('./components/style.ejs') %>
     <body>
-        <h3><%= data.text %></h3>
+        <h3><%= text %></h3>
         <form action="/edit" method="POST">
-           
-           <input type="number" name="id" value=<%= id %> > <br>
 
-
+            <% if (data.length > 0) { %>
+                <% data.forEach(element => { %>
+                    
+           <input type="number" name="id" value=<%= element.id %> > <br>
            <label>NISN</label>
-           <input type="number" name="nis"  required> <br>
+           <input type="number" name="nis" value=<%= element.nis %>  required> <br>
 
            <label>Nama Lengkap</label>
-           <input type="text" name="nama" maxlength="50" required> <br>
+           <input type="text" name="nama" maxlength="50" value=<%= element.nama_lengkap  %>  required> <br>
 
            <label>Kelas</label>
             <select name="kelas">
@@ -24,22 +25,25 @@
            <input type="radio" name="jurusan" value="fiktif" required>Fiktif <br>
            
            <label>Tempat Lahir</label>
-           <input type="text" name="tempatl" maxlength="50" required > <br>
+           <input type="text" name="tempatl" maxlength="50" value=<%= element.tempat_lahir %>  required > <br>
            
            <label>Tanggal Lahir</label>
-           <input type="date" name="tgll" required> <br>
+           <input type="date" name="tgll" value=<%= element.tanggal_lahir %>  required> <br>
            
            <label>Alamat</label>
-           <textarea name="alamat"  cols="30" rows="10" required></textarea> <br>
+           <textarea name="alamat"  cols="30" rows="10"  required><%= element.alamat %></textarea> <br>
            
            <label>Email</label>
-           <input type="email" name="email" maxlength="50" required> <br>
+           <input type="email" name="email" maxlength="50" value=<%= element.email %>  required> <br>
            
            <label>No. Telp</label>
-           <input type="number" name="notelp" maxlength="15" required> <br>
+           <input type="number" name="notelp" maxlength="15" value=<%= element.no_telp %>  required> <br>
             
            <input type="submit" value="Add">
            <a href="/dashboard">Cancel</a>
+
+                <% }); %> 
+            <% } %>
         </form>
 
         <%- include('./components/footer.ejs'); %> 
