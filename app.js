@@ -15,6 +15,7 @@ var dashboardRouter = require('./routes/dashboard');
 //crud router setup
 var addRouter = require('./routes/add');
 var deleteRouter = require('./routes/delete');
+var editRouter = require('./routes/edit');
 
 var app = express();
 
@@ -49,7 +50,8 @@ app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);
 //crud router
 app.use('/add', addRouter);
-app.use('/delete', deleteRouter)
+app.use('/delete', deleteRouter);
+app.use('/edit', editRouter);
 
 
 /**

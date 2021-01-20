@@ -1,11 +1,12 @@
 <html>
     <%- include('./components/style.ejs') %>
     <body>
-        <h3><%= text %></h3>
-        <form action="/add" method="POST">
-           <!-- <label>No</label>
-           <input type="" name="" required> <br> -->
-            id <input type="number" ><br>
+        <h3><%= data.text %></h3>
+        <form action="/edit" method="POST">
+           
+           <input type="number" name="id" value=<%= id %> > <br>
+
+
            <label>NISN</label>
            <input type="number" name="nis"  required> <br>
 

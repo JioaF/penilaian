@@ -1,16 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var conn = require('../controller/database');
-var insert = require('../controller/crud');
 
-router.get('/',function(req, res){
-    res.render('../views/add_page.ejs',{text : "Tambah Data Siswa"});
 
-    //declaring the input name
-    
-});
+router.get('/:id',function(req, res){
+    var getid = req.params.id;
 
-router.post('/',function(req, res){
     var data = {
         nis : req.body.nis,
         nama_lengkap : req.body.nama,
@@ -22,10 +17,16 @@ router.post('/',function(req, res){
         email : req.body.email,
         no_telp : req.body.notelp
     };
-
-    insert.create('INSERT INTO tab_siswa SET ? ', data);
-    res.redirect('/dashboard')
-    res.end;
-});
+    
+    conn.query('SELECT FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
+        if(err) throw err;
+        if(results.length > 0){
+            res.render('edit_page', {text : "Edit data Siswa", id:getid}) 
+        }else{
+            res.send("Data not found!");
+        }
+          
+    });
+})
 
 module.exports = router;
