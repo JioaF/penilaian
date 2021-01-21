@@ -12,7 +12,7 @@
            <input type="number" name="nis" value=<%= element.nis %>  required> <br>
 
            <label>Nama Lengkap</label>
-           <input type="text" name="nama" maxlength="50" value=<%= element.nama_lengkap  %>  required> <br>
+           <input type="text" name="nama" value="<%=element.nama_lengkap  %>"  required> <br>
 
            <label>Kelas</label>
             <select name="kelas">
@@ -28,7 +28,7 @@
            <input type="text" name="tempatl" maxlength="50" value=<%= element.tempat_lahir %>  required > <br>
            
            <label>Tanggal Lahir</label>
-           <input type="date" name="tgll" value=<%= element.tanggal_lahir %>  required> <br>
+           <input type="datetime-local" name="tgll" value="<%= element.tanggal_lahir %>"  required> <br>
            
            <label>Alamat</label>
            <textarea name="alamat"  cols="30" rows="10"  required><%= element.alamat %></textarea> <br>
@@ -39,7 +39,7 @@
            <label>No. Telp</label>
            <input type="number" name="notelp" maxlength="15" value=<%= element.no_telp %>  required> <br>
             
-           <input type="submit" value="Add">
+           <input type="submit" value="Save">
            <a href="/dashboard">Cancel</a>
 
                 <% }); %> 

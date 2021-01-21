@@ -5,15 +5,36 @@ var conn = require('../controller/database');
 
 router.get('/:id',function(req, res){
     var getid = req.params.id;
-
-   var data = {};
-    
     conn.query('SELECT * FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
         if(err) throw err;
-        
             
         res.render('edit_page', {text:"Edit data  Siswa", data:results});          
     });
-})
+});
+
+router.post('/',function(req, res){
+    var upid = req.body.id;
+
+    var data = {
+        nis : req.body.nis,
+        nama_lengkap : req.body.nama,
+        kelas : req.body.kelas,
+        jurusan : req.body.jurusan,
+        tempat_lahir : req.body.tempatl,
+        tanggal_lahir : req.body.tgll,
+        alamat : req.body.alamat,
+        email : req.body.email,
+        no_telp : req.body.notelp
+    };
+
+    conn.query('UPDATE tab_siswa SET ? WHERE id = ?', [data, upid], function(err, results, fields){
+        if (err) {
+            throw err;
+        }else{
+            console.log(results);
+            res.redirect('/dashboard');
+        }
+    })
+});
 
 module.exports = router;

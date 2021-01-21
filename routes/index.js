@@ -21,8 +21,9 @@ router.post('/', function(req, res){
 
   if(username && password){
     conn.query('SELECT * FROM tab_user WHERE username = ? AND password = ?', 
-    [username, password], function(error, results, fields){
-      if(results.length > 0){
+    [username, password], (error, rows, fields)=>{
+      if(error) throw error;
+      if(rows.length > 0){
         //console.log(fields.name);
         req.session.loggedin = true,
         req.session.username = username,
