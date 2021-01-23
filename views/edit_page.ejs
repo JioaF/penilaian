@@ -7,7 +7,7 @@
             <% if (data.length > 0) { %>
                 <% data.forEach(element => { %>
                     
-           <input type="number" name="id" value=<%= element.id %> > <br>
+           <input hidden type="number" name="id" value=<%= element.id %> > <br>
            <label>NISN</label>
            <input type="number" name="nis" value=<%= element.nis %>  required> <br>
 
@@ -28,7 +28,7 @@
            <input type="text" name="tempatl" maxlength="50" value=<%= element.tempat_lahir %>  required > <br>
            
            <label>Tanggal Lahir</label>
-           <input type="datetime-local" name="tgll" value="<%= element.tanggal_lahir %>"  required> <br>
+           <input type="date" name="tgll" value="<%= element.tanggal_lahir %>"  required> <br>
            
            <label>Alamat</label>
            <textarea name="alamat"  cols="30" rows="10"  required><%= element.alamat %></textarea> <br>

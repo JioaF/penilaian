@@ -6,12 +6,7 @@ var conn = require('../controller/database');
 
 router.get('/:id', function(req, res){
     var getid = req.params.id;
-    Deletecrud.delete('DELETE FROM tab_siswa WHERE id = ?', getid);
-    // conn.query('DELETE FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
-    //     if(err ) throw err;
-    //     console.log(results);
-        
-    // });
+    Deletecrud.delete('tab_siswa', getid);
     console.log(req.params.id);
     res.redirect('/dashboard');
 });

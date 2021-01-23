@@ -1,0 +1,18 @@
+# + mean already fixed
+# - mean not yet fixed
+
+
+things need to remember :
+1. fix input length validation (-)
+    the system will crash if the length of input 
+    is exceeding the record type length.
+
+2. add authentication for user login (-) 
+    so the user will cannot use the app if 
+    the session is expired.
+
+3. make the design looks prettier (-)
+    atleast can be accepted by average 
+    human eyes.
+
+4. create middleware for some of tab_user record (-).

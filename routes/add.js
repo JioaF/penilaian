@@ -5,12 +5,10 @@ var insert = require('../controller/crud');
 
 router.get('/',function(req, res){
     res.render('../views/add_page.ejs',{text : "Tambah Data Siswa"});
-
-    //declaring the input name
     
 });
 
-router.post('/',function(req, res){
+router.post('/', function(req, res){
     var data = {
         nis : req.body.nis,
         nama_lengkap : req.body.nama,
@@ -23,8 +21,8 @@ router.post('/',function(req, res){
         no_telp : req.body.notelp
     };
 
-    insert.create('INSERT INTO tab_siswa SET ? ', data);
-    res.redirect('/dashboard')
+    insert.create('tab_siswa', data);
+    res.redirect('/dashboard');
     res.end;
 });
  

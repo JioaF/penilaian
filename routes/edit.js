@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var conn = require('../controller/database');
+var input = require('../controller/crud');
 
 
 router.get('/:id',function(req, res){
@@ -27,14 +28,8 @@ router.post('/',function(req, res){
         no_telp : req.body.notelp
     };
 
-    conn.query('UPDATE tab_siswa SET ? WHERE id = ?', [data, upid], function(err, results, fields){
-        if (err) {
-            throw err;
-        }else{
-            console.log(results);
-            res.redirect('/dashboard');
-        }
-    })
+        input.update('tab_siswa', data, upid);
+        res.redirect('/dashboard');
 });
 
 module.exports = router;
