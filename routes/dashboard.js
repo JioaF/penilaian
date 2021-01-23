@@ -16,7 +16,8 @@ router.get('/',function(req, res){
         if(results[1].length > 0){
             results[1].forEach(element => {
                 console.log(element.nomerhp);
-                res.render('dashboard', {user:req.session.username, 
+                res.render('dashboard', {
+                    user:req.session.username, 
                     data:results[0], 
                     email:element.email,
                     nohp: element.nomerhp

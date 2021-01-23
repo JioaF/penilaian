@@ -30,6 +30,15 @@ a {
 .btnPadding{
   padding-left: 20px;
   padding-right: 20px;
-  
+
+}
+
+
+.tableTitle{
+  border: black;
+  border-radius: 9px;
+  border-style: solid;
+  color: whitesmoke;
+  background-color: black;
 }
 
