@@ -1,25 +1,27 @@
 <html lang="en">
 <%- include('./components/style.ejs') %> 
 <body>
-   <%- include('./components/navbar.ejs') %>
-   
-     <div>
+    <%- include('./components/navbar.ejs'), {email:email, nohp:nohp} %>          
+    
+     <div class="container">
         <h3>Data Siswa</h3>
         <a href="/add">Tambah</a>
-        <table border="2">
-            <tr>
-                <th>No</th>
-                <th>Nis</th>
-                <th>Nama Lengkap</th>
-                <th>Kelas</th>
-                <th>Jurusan</th>
-                <th>Tempat Lahir</th>
-                <th>Tanggal Lahir</th>
-                <th>Alamat</th>
-                <th>Email</th>
-                <th>No. Telp</th>
-                <th>Action</th>
-            </tr>
+        <table class="table text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>NIS</th>
+                    <th>Nama Lengkap</th>
+                    <th>Kelas</th>
+                    <th>Jurusan</th>
+                    <th>Tempat / Tanggal lahir</th>
+                    <th>Alamat</th>
+                    <th>Email</th>
+                    <th>No. Telp</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            
             
                 <% if (data.length > 0) { %>
                     <% var i = 1; %> 
@@ -30,14 +32,14 @@
                                 <td><%=el.nama_lengkap   %> </td>
                                 <td><%=el.kelas   %> </td>
                                 <td><%=el.jurusan   %> </td>
-                                <td><%=el.tempat_lahir   %> </td>
-                                <td><%=el.tanggal_lahir   %> </td>
+                                <td><%=el.tempat_lahir %> / <%=el.tanggal_lahir %> </td>
+                                <!-- <td><</td> -->
                                 <td><%=el.alamat   %> </td>
                                 <td><%=el.email  %> </td>
                                 <td><%=el.no_telp  %> </td>
                                 <td>
-                                    <a href="/edit/<%=el.id  %> ">Edit</a>
-                                    <a href="/delete/<%=el.id  %> ">Delete</a>
+                                    <a href="/edit/<%=el.id  %> " class="btn btn-success px-4 mb-2">Edit</a>
+                                    <a href="/delete/<%=el.id  %> " class="btn btn-danger px-3 mt-1">Delete</a>
                                 </td>
                             </tr>
                         <% i++}); %>
