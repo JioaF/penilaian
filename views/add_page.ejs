@@ -1,44 +1,73 @@
 <html>
     <%- include('./components/style.ejs') %>
     <body>
-        <h3><%= text %></h3>
-        <form action="/add" method="POST">
-           <!-- <label>No</label>
-           <input type="" name="" required> <br> -->
-           <label>NISN</label>
-           <input type="number" name="nis"  required> <br>
+        <%- include('./components/navbar.ejs') %> 
+        <div class="container px-3">
+            <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
+            <form action="/add" method="POST">
+                
+                <div class="form-group">
+                    <label>NISN</label>
+                    <input type="number" name="nis"  required class="form-control" placeholder="00xxxxxx"> <br>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama" maxlength="50" required class="form-control" placeholder="Enter your fullname..."> <br>
+                </div>
+                
+                <div class="form-group">
+                    <label>Kelas</label>
+                 <select name="kelas" class="form-control">
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                 </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Jurusan</label>    
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Fiktif" required class="form-check-input">Fiktif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Ghaib" required class="form-check-input">Ghaib
+                    </label>
+                </div>              
+            </div>
 
-           <label>Nama Lengkap</label>
-           <input type="text" name="nama" maxlength="50" required> <br>
-
-           <label>Kelas</label>
-            <select name="kelas">
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select> <br>
-           
-           <label>Jurusan</label><br>
-           <input type="radio" name="jurusan" value="fiktif" required>Fiktif <br>
-           
-           <label>Tempat Lahir</label>
-           <input type="text" name="tempatl" maxlength="50" required > <br>
-           
-           <label>Tanggal Lahir</label>
-           <input type="datetime-local" name="tgll" required> <br>
-           
-           <label>Alamat</label>
-           <textarea name="alamat"  cols="30" rows="10" required></textarea> <br>
-           
-           <label>Email</label>
-           <input type="email" name="email" maxlength="50" required> <br>
-           
-           <label>No. Telp</label>
-           <input type="number" name="notelp" maxlength="15" required> <br>
-            
-           <input type="submit" value="Add">
-           <a href="/dashboard">Cancel</a>
-        </form>
+                <div class="form-group">
+                    <label>Tempat Lahir</label>
+                    <input type="text" name="tempatl" maxlength="50" required class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tanggal Lahir</label>
+                <input type="date" name="tgll" required class="form-control">
+                </div>
+                 
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <textarea name="alamat" required class="form-control" placeholder="JL. ..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" maxlength="50" required class="form-control" placeholder="username@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>No. Telp</label>
+                    <input type="number" name="notelp" maxlength="15" required class="form-control" placeholder="+62-xxx-xxx-xxx">
+                </div>
+                 
+                <input type="submit" value="Add" class="btn btn-success">
+                <a href="/dashboard" class="btn btn-info">Cancel</a>
+             </form>
+        </div>
 
         <%- include('./components/footer.ejs'); %> 
     </body> 

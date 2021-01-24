@@ -8,8 +8,17 @@ router.get('/:id',function(req, res){
     var getid = req.params.id;
     conn.query('SELECT * FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
         if(err) throw err;
-            
-        res.render('edit_page', {text:"Edit data  Siswa", data:results});          
+            input.read_tab_user(function(email, nomerhp){
+                res.render('edit_page', 
+                {
+                    text:"Edit data  Siswa",
+                    data:results,
+                    user: req.session.username,
+                    email : email,
+                    nohp : nomerhp
+                    });
+            });
+                  
     });
 });
 

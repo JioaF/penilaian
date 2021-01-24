@@ -1,51 +1,92 @@
 <html>
     <%- include('./components/style.ejs') %>
     <body>
-        <h3><%= text %></h3>
-        <form action="/edit" method="POST">
 
-            <% if (data.length > 0) { %>
-                <% data.forEach(element => { %>
-                    
-           <input hidden type="number" name="id" value=<%= element.id %> > <br>
-           <label>NISN</label>
-           <input type="number" name="nis" value=<%= element.nis %>  required> <br>
+        <%- include('./components/navbar.ejs') %>
 
-           <label>Nama Lengkap</label>
-           <input type="text" name="nama" value="<%=element.nama_lengkap  %>"  required> <br>
+        <div class="container">
+            <form action="/edit" method="POST">
+                <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
 
-           <label>Kelas</label>
-            <select name="kelas">
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select> <br>
-           
-           <label>Jurusan</label><br>
-           <input type="radio" name="jurusan" value="fiktif" required>Fiktif <br>
-           
-           <label>Tempat Lahir</label>
-           <input type="text" name="tempatl" maxlength="50" value=<%= element.tempat_lahir %>  required > <br>
-           
-           <label>Tanggal Lahir</label>
-           <input type="date" name="tgll" value="<%= element.tanggal_lahir %>"  required> <br>
-           
-           <label>Alamat</label>
-           <textarea name="alamat"  cols="30" rows="10"  required><%= element.alamat %></textarea> <br>
-           
-           <label>Email</label>
-           <input type="email" name="email" maxlength="50" value=<%= element.email %>  required> <br>
-           
-           <label>No. Telp</label>
-           <input type="number" name="notelp" maxlength="15" value=<%= element.no_telp %>  required> <br>
-            
-           <input type="submit" value="Save">
-           <a href="/dashboard">Cancel</a>
+                <% if (data.length > 0) { %>
+                    <% data.forEach(element => { %>
+                        
+               <input hidden type="number" name="id" value=<%= element.id %> >
 
-                <% }); %> 
-            <% } %>
-        </form>
-
+                <div class="form-group">
+                    <label>NISN</label>
+                    <input type="number" name="nis" value="<%= element.nis %>"  required class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama" value="<%=element.nama_lengkap  %>"  required class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Kelas</label>
+                    <select name="kelas" class="form-control">
+                        <option value="<%=element.kelas %>" >Default</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                
+               
+                <div class="form-group">
+                    <label>Jurusan</label>
+                    <div class="form-check">
+                        <label for="" class="form-check-label">
+                            <input type="radio" name="jurusan" value="<%= element.jurusan %>" checked class="form-check-input">Default
+                        </label>
+                    </div>    
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Fiktif" required class="form-check-input">Fiktif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Ghaib" required class="form-check-input">Ghaib
+                    </label>
+                </div>              
+            </div>
+               
+            <div class="form-group">
+                <label>Tempat Lahir</label>
+                <input type="text" name="tempatl" maxlength="50" value=<%= element.tempat_lahir %>  required class="form-control">
+            </div>
+        
+            <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <input type="date" name="tgll" value="<%= element.tanggal_lahir %>"  required class="form-control">
+            </div>
+                
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <textarea name="alamat"  cols="30"  required class="form-control"><%= element.alamat %></textarea>
+                </div>  
+        
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" maxlength="50" value=<%= element.email %>  required class="form-control">
+                </div>
+        
+               <div class="form-group">
+                   <label>No. Telp</label>
+                    <input type="number" name="notelp" maxlength="15" value=<%= element.no_telp %>  required class="form-control">
+               </div>
+                
+               <input type="submit" value="Save" class="btn btn-success">
+               <a href="/dashboard" class="btn btn-info">Cancel</a>
+    
+                    <% }); %> 
+                <% } %>
+            </form>
+    
+        </div>
+        
         <%- include('./components/footer.ejs'); %> 
     </body> 
 </html>

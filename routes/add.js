@@ -1,10 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var conn = require('../controller/database');
 var insert = require('../controller/crud');
+var input = require('../controller/crud');
 
 router.get('/',function(req, res){
-    res.render('../views/add_page.ejs',{text : "Tambah Data Siswa"});
+    input.read_tab_user(function(email, nohp){
+        res.render('../views/add_page.ejs',
+        {
+            user: req.session.username,
+            email : email,
+            nohp : nohp,
+            text : "Tambah Data Siswa",
+
+        });
+    });
+    
     
 });
 

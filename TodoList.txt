@@ -16,3 +16,7 @@ things need to remember :
     human eyes.
 
 4. create middleware for some of tab_user record (-).
+
+5. create pages for individual add and edit so (-)
+    make things easier when having more than 1 table to
+    crud.

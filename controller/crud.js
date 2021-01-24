@@ -25,5 +25,13 @@ module.exports = {
                 console.log(results);
             }
         })
-    }
+    },
+    read_tab_user : function(callback){
+        conn.query('SELECT * FROM tab_user', function(err, results, fields){
+            var email = results[0].email;
+            var nomerhp = results[0].nomerhp;
+            // console.log(results[0].email);
+            return callback(email, nomerhp);
+        })
+    },
 }
