@@ -1,10 +1,10 @@
 <html>
-    <%- include('./components/style.ejs') %>
+    <%- include('../components/style.ejs') %>
     <body>
-        <%- include('./components/navbar.ejs') %> 
+        <%- include('../components/navbar.ejs') %> 
         <div class="container px-3">
             <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
-            <form action="/add" method="POST">
+            <form action="/data-siswa/add" method="POST">
                 
                 <div class="form-group">
                     <label>NISN</label>
@@ -65,10 +65,10 @@
                 </div>
                  
                 <input type="submit" value="Add" class="btn btn-success">
-                <a href="/dashboard" class="btn btn-info">Cancel</a>
+                <a href="/data-siswa" class="btn btn-info">Cancel</a>
              </form>
         </div>
 
-        <%- include('./components/footer.ejs'); %> 
+        <%- include('../components/footer.ejs'); %> 
     </body> 
 </html>

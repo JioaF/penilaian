@@ -1,0 +1,53 @@
+<html>
+    <%- include('../components/style.ejs')  %>
+    
+    <body>
+        <%- include('../components/navbar.ejs')  %> 
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>NIK</th>
+                            <th>Nama</th>
+                            <th>Pendidikan terakhir</th>
+                            <th>Jurusan</th>
+                            <th>Asal Sekolah</th>
+                            <th>Alamat</th>
+                            <th>Email</th>
+                            <th>No. Telp</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% if (data.length > 0) { %>
+                            <% var i = 1; %>
+                            
+                            <% data.forEach(el => { %>
+                             <tr>
+                                 <td><%=i  %> </td>
+                                 <td><%=el.nik  %> </td>
+                                 <td><%=el.nama_guru  %> </td>
+                                 <td><%=el.pendidikan_terakhir %> </td>
+                                 <td><%=el.jurusan  %> </td>
+                                 <td><%=el.asal_sekolah  %> </td>
+                                 <td><%=el.alamat  %> </td>
+                                 <td><%=el.email  %> </td>
+                                 <td><%=el.no_telp  %> </td>
+                             </tr>
+
+                            <% i++}); %>
+
+
+
+                        <% } else { %>
+                            <tr>
+                                <td>No data Found</td>
+                            </tr>
+                            <% } %> 
+                        
+                    </tbody>
+                </table>
+            </div>
+        <%- include('../components/footer.ejs')  %>
+    </body>
+</html>

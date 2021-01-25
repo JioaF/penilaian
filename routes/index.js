@@ -24,9 +24,11 @@ router.post('/', function(req, res){
     [username, password], (error, rows, fields)=>{
       if(error) throw error;
       if(rows.length > 0){
-        //console.log(fields.name);
+        console.log(rows.email);
         req.session.loggedin = true,
         req.session.username = username,
+        req.session.email = rows[0].email
+        req.session.nohp = rows[0].nomerhp
         res.redirect('/dashboard');
       }else{
         res.send('Incorrect username / password');

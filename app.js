@@ -12,13 +12,25 @@ var authRouter = require('./routes/auth');
 var logoutRouter = require('./routes/logout');
 var aboutRouter = require('./routes/about');
 var dashboardRouter = require('./routes/dashboard');
-//crud router setup
-var addRouter = require('./routes/add');
 var deleteRouter = require('./routes/delete');
-var editRouter = require('./routes/edit');
+// idk other way to work around 
+//router file for each of main sub page
+// DS = data siswa
+var DSRouter = require('./routes/dataSiswa_route/data-siswa');
+var DSadd = require('./routes/dataSiswa_route/add');
+var DSedit = require('./routes/dataSiswa_route/edit');
+
+//DG = data guru
+var DGRouter = require('./routes/dataGuru_route/data-guru');
+const { DH_CHECK_P_NOT_SAFE_PRIME } = require('constants');
+// var DGRadd = require('./routes/dataGuru_route');
+// var DGedit = require('./routes/dataGuru_route');
 
 var app = express();
 
+// app.locals.user = 'test';
+// app.locals.email = 'test';
+// app.locals.nohp = 'test';
 //create session
 app.use(session({
   secret:'secret',
@@ -42,16 +54,30 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //router setup
-app.use('/', indexRouter);
+app.use('/', indexRouter, function (req, res, next) {
+  app.locals.user = req.session.username;
+  app.locals.email = req.session.email;
+  app.locals.nohp = req.session.nohp;
+  next()
+});
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
-app.use('/dashboard', dashboardRouter)
+app.use('/dashboard', dashboardRouter);
+
+//data-siswa route
+var ds = '/data-siswa';
+app.use(ds, DSRouter);
+app.use(`${ds}/add`, DSadd);
+app.use(`${ds}/delete`, deleteRouter);
+app.use(`${ds}/edit`, DSedit);
+//
+
+//data-guru route
+var dg = '/data-guru';
+app.use(dg, DGRouter);
+
 app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);
-//crud router
-app.use('/add', addRouter);
-app.use('/delete', deleteRouter);
-app.use('/edit', editRouter);
 
 
 /**

@@ -1,0 +1,58 @@
+<html lang="en">
+<%- include('../components/style.ejs') %> 
+<body>
+    <%- include('../components/navbar.ejs') %>          
+    
+     <div class="container table-responsive">
+        <h1 class="fas fa-table tableTitle"> Data Siswa</h1> <br>
+
+        <a href="data-siswa/add" class="btn btn-info fas fa-plus-square my-3 px-5"></a>
+
+        <table class="table table-bordered text-center" >
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>NIS</th>
+                    <th>Nama Lengkap</th>
+                    <th>Kelas</th>
+                    <th>Jurusan</th>
+                    <th>Tempat / Tanggal lahir</th>
+                    <th>Alamat</th>
+                    <th>Email</th>
+                    <th>No. Telp</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% if (data.length > 0) { %>
+                    <% var i = 1; %> 
+                    <% data.forEach(el => { %>
+                            <tr>
+                                <td><%=i; %></td>
+                                <td><%=el.nis   %> </td>
+                                <td><%=el.nama_lengkap   %> </td>
+                                <td><%=el.kelas   %> </td>
+                                <td><%=el.jurusan   %> </td>
+                                <td><%=el.tempat_lahir %> / <%=el.tanggal_lahir %> </td>
+                                <!-- <td><</td> -->
+                                <td><%=el.alamat   %> </td>
+                                <td><%=el.email  %> </td>
+                                <td><%=el.no_telp  %> </td>
+                                <td>
+                                    <a href="/data-siswa/edit/<%=el.id  %> " class="btn btn-success px-4 my-3">Edit</a>
+                                    <a href="/data-siswa/delete/<%=el.id  %> " class="btn btn-danger px-3 ">Delete</a>
+                                </td>
+                            </tr>
+                        <% i++}); %>
+                <% } else { %>
+                        <tr>
+                            <td>No data Found</td>
+                        </tr>
+                    <% } %> 
+                </tbody>
+        </table>
+    </div>
+    <%- include('../components/footer.ejs'); %>  
+</body>
+</html>

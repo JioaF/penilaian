@@ -20,3 +20,6 @@ things need to remember :
 5. create pages for individual add and edit so (-)
     make things easier when having more than 1 table to
     crud.
+
+6. hash the password to the md5 encryption (-)
+    and make the login form decrypt it everytime want to login.

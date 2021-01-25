@@ -26,12 +26,14 @@ module.exports = {
             }
         })
     },
-    read_tab_user : function(callback){
-        conn.query('SELECT * FROM tab_user', function(err, results, fields){
-            var email = results[0].email;
-            var nomerhp = results[0].nomerhp;
-            // console.log(results[0].email);
-            return callback(email, nomerhp);
+    read : function(callback){
+        conn.query('SELECT * FROM tab_siswa; SELECT * FROM tab_guru', function(err, results, fields){
+            if(err) throw err;
+            var dataSiswa = results[0];
+            var dataGuru = results[1];
+            return callback(dataSiswa, dataGuru);
         })
-    },
+    }, userData : conn.query('SELECT * FROM tab_user', function (err, results, fields) {
+        results[0].email;
+    })
 }
