@@ -22,9 +22,8 @@ var DSedit = require('./routes/dataSiswa_route/edit');
 
 //DG = data guru
 var DGRouter = require('./routes/dataGuru_route/data-guru');
-const { DH_CHECK_P_NOT_SAFE_PRIME } = require('constants');
-// var DGRadd = require('./routes/dataGuru_route');
-// var DGedit = require('./routes/dataGuru_route');
+var DGadd = require('./routes/dataGuru_route/add');
+var DGedit = require('./routes/dataGuru_route/edit');
 
 var app = express();
 
@@ -75,6 +74,9 @@ app.use(`${ds}/edit`, DSedit);
 //data-guru route
 var dg = '/data-guru';
 app.use(dg, DGRouter);
+app.use(`${dg}/add`, DGadd);
+app.use(`${dg}/delete`, deleteRouter);
+app.use(`${dg}/edit`, DGedit);
 
 app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);

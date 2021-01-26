@@ -3,10 +3,15 @@
     
     <body>
         <%- include('../components/navbar.ejs')  %> 
-            <div class="container">
-                <table class="table">
-                    <thead>
+            <div class="container table-responsive">
+                <h1 class="fas fa-table tableTitle"> Data Guru</h1> <br>
+
+                <a href="/data-guru/add" class="btn btn-info fas fa-plus-square my-3 px-5"></a>
+
+                <table class="table table-bordered text-center">
+                    <thead class="thead-dark">
                         <tr>
+                            <th>No.</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Pendidikan terakhir</th>
@@ -15,6 +20,7 @@
                             <th>Alamat</th>
                             <th>Email</th>
                             <th>No. Telp</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -33,6 +39,10 @@
                                  <td><%=el.alamat  %> </td>
                                  <td><%=el.email  %> </td>
                                  <td><%=el.no_telp  %> </td>
+                                 <td>
+                                    <a href="/data-guru/edit/<%=el.id  %> " class="btn btn-success px-4 my-3">Edit</a>
+                                    <a href="/data-guru/delete/<%=el.id  %> " class="btn btn-danger px-3 ">Delete</a>
+                                </td>
                              </tr>
 
                             <% i++}); %>

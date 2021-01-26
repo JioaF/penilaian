@@ -5,8 +5,10 @@
         <%- include('../components/navbar.ejs') %>
 
         <div class="container">
+            <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
+            
             <form action="/data-siswa/edit" method="POST">
-                <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
+               
 
                 <% if (data.length > 0) { %>
                     <% data.forEach(element => { %>

@@ -7,11 +7,11 @@ var input = require('../../controller/crud');
 router.get('/:id',function(req, res){
     var getid = req.params.id;
     
-            conn.query('SELECT * FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
+            conn.query('SELECT * FROM tab_guru WHERE id = ?', [getid], function(err, results, fields){
                 if(err) throw err;
-                        res.render('./dataSiswa_page/ds_editPage', 
+                        res.render('./dataGuru_page/dg_editPage', 
                         {
-                            text:"Edit data  Siswa",
+                            text:"Edit data  Guru",
                             data:results
                         });   
             });        

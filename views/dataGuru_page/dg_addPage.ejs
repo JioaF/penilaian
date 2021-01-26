@@ -1,0 +1,61 @@
+<html>
+<%- include('../components/style.ejs') %>
+
+    <body>
+        <%- include('../components/navbar.ejs') %>
+            <div class="container">
+                <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
+
+                <form action="/data-guru/add" method="POST">
+                   
+                    <div class="form-group">
+                        <label for="">NIK</label>
+                        <input type="number" class="form-control" name="nik">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Nama Guru</label>
+                        <input type="text" class="form-control" name="nama_guru">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Pendidikan terakhir</label>
+                        <input type="text" class="form-control" name="pendidikan_terakhir">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Jurusan</label>
+                        <input type="text" class="form-control" name="jurusan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Asal Sekolah</label>
+                        <input type="text" class="form-control" name="asal_sekolah">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Alamat</label>
+                        <textarea name="alamat" id="" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">No Telp.</label>
+                        <input type="number" class="form-control" name="notelp">
+                    </div>
+
+                    <input type="submit" value="Add">
+                    <a href="/data-guru">Cancel</a>
+                </form>
+
+            </div>
+
+
+            <%- include('../components/footer.ejs') %>
+    </body>
+
+</html>

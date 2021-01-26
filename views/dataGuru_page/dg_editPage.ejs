@@ -1,0 +1,38 @@
+<html>
+    <%- include('../components/style.ejs')  %>
+    <body>
+        <%- include('../components/navbar.ejs')  %>
+
+            <div class="container">
+                <h1 class="fas fa-table tableTitle"><%= text %> </h1>
+                <form action="/data-guru/edit" method="POST">
+
+                    <% if (data.length > 0) { %>
+                        <% data.forEach(el => { %>
+                         
+                    <input type="number" value="<%= el.id %>" class="form-control" name="id" hidden>
+                    
+                    <div class="form-group">
+                        <label for="">NIK</label>
+                        <input name="" type="text" class="form-control" value="<%= el.nik %> ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for=""></label>
+                        <input name="" type="text" class="form-control" value="">
+                    </div>
+
+
+
+                    <input type="submit" value="Save">
+                    <a href="/data-guru">Cancel</a>
+
+                        <% }) %> 
+                    <% } %>
+                </form>
+
+            </div>
+
+        <%- include('../components/footer.ejs')  %> 
+    </body>
+</html>
