@@ -20,20 +20,19 @@ router.get('/:id',function(req, res){
 
 router.post('/',function(req, res){
     var upid = req.body.id;
-            var data = {
-                nis : req.body.nis,
-                nama_lengkap : req.body.nama,
-                kelas : req.body.kelas,
-                jurusan : req.body.jurusan,
-                tempat_lahir : req.body.tempatl,
-                tanggal_lahir : req.body.tgll,
-                alamat : req.body.alamat,
-                email : req.body.email,
-                no_telp : req.body.notelp
-            };
+    var data = {
 
-            input.update('tab_siswa', data, upid);
-            res.redirect('/data-siswa');       
+        nik : req.body.nik,
+        nama_guru : req.body.nama_guru,
+        pendidikan_terakhir : req.body.pendidikan_terakhir,
+        jurusan : req.body.jurusan,
+        asal_sekolah : req.body.asal_sekolah,
+        alamat : req.body.alamat,
+        email : req.body.email,
+        no_telp : req.body.notelp
+    };
+            input.update('tab_guru', data, upid);
+            res.redirect('/data-guru');       
     
 });
 
