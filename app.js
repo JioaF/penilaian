@@ -12,18 +12,17 @@ var authRouter = require('./routes/auth');
 var logoutRouter = require('./routes/logout');
 var aboutRouter = require('./routes/about');
 var dashboardRouter = require('./routes/dashboard');
-var deleteRouter = require('./routes/delete');
-// idk other way to work around 
-//router file for each of main sub page
-// DS = data siswa
-var DSRouter = require('./routes/dataSiswa_route/data-siswa');
-var DSadd = require('./routes/dataSiswa_route/add');
-var DSedit = require('./routes/dataSiswa_route/edit');
 
-//DG = data guru
-var DGRouter = require('./routes/dataGuru_route/data-guru');
-var DGadd = require('./routes/dataGuru_route/add');
-var DGedit = require('./routes/dataGuru_route/edit');
+//workaround i found after 1 day thingking
+//data siswa router
+var dsRouter = require('./routes/data_siswa');
+
+//data guru router
+var dgRouter = require('./routes/data-guru');
+
+//data mapel router 
+var dmRouter = require('./routes/data-mapel');
+
 
 var app = express();
 
@@ -64,19 +63,14 @@ app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
 
 //data-siswa route
-var ds = '/data-siswa';
-app.use(ds, DSRouter);
-app.use(`${ds}/add`, DSadd);
-app.use(`${ds}/delete`, deleteRouter);
-app.use(`${ds}/edit`, DSedit);
-//
+app.use(dsRouter);
 
 //data-guru route
-var dg = '/data-guru';
-app.use(dg, DGRouter);
-app.use(`${dg}/add`, DGadd);
-app.use(`${dg}/delete`, deleteRouter);
-app.use(`${dg}/edit`, DGedit);
+app.use(dgRouter);
+
+//data-maper route 
+app.use(dmRouter);
+
 
 app.use('/logout', logoutRouter);
 app.use('/about', aboutRouter);

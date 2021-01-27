@@ -27,13 +27,12 @@ module.exports = {
         })
     },
     read : function(callback){
-        conn.query('SELECT * FROM tab_siswa; SELECT * FROM tab_guru', function(err, results, fields){
+        conn.query('SELECT * FROM tab_siswa; SELECT * FROM tab_guru; SELECT * FROM tab_pelajaran', function(err, results, fields){
             if(err) throw err;
             var dataSiswa = results[0];
             var dataGuru = results[1];
-            return callback(dataSiswa, dataGuru);
+            var dataPelajaran = results[2];
+            return callback(dataSiswa, dataGuru, dataPelajaran);
         })
-    }, userData : conn.query('SELECT * FROM tab_user', function (err, results, fields) {
-        results[0].email;
-    })
+    },
 }
