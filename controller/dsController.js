@@ -10,7 +10,7 @@ module.exports = {
         });
     },
     dsAddGet: function(req, res) {
-        res.render('dataSiswa_page/ds_addPage.ejs', {text : "Tambah Data Siswa",});
+        res.render('dataSiswa_page/ds_Form', {text : "Tambah Data Siswa", actionurl:'/data-siswa/add'});
     },
     dsAddPost: function (req, res) {
         var data = {
@@ -34,8 +34,29 @@ module.exports = {
     
             conn.query('SELECT * FROM tab_siswa WHERE id = ?', [getid], function(err, results, fields){
                 if(err) throw err;
-                res.render('./dataSiswa_page/ds_editPage', {text:"Edit data  Siswa", data:results});   
-            });        
+                results.forEach(el => {
+                res.render('./dataSiswa_page/ds_Form', 
+                {
+                    text:"Edit data  Siswa",  
+                    actionurl:'/data-siswa/edit',
+                    id : getid,
+                    nisn : el.nis,
+                    nama_lengkap : el.nama_lengkap,
+                    kelas : el.kelas,
+                    jurusan : el.jurusan,
+                    tempat_lahir : el.tempat_lahir,
+                    tanggal_lahir : el.tanggal_lahir,
+                    alamat : el.alamat,
+                    email : el.email,
+                    no_telp : el.no_telp
+                    
+                });    
+                });
+                
+
+            }); 
+            
+            
     },
     dsEditPost: function (req, res) {
         var upid = req.body.id;
@@ -57,7 +78,7 @@ module.exports = {
     del : function (req, res) {
         var getid = req.params.id;
         input.delete('tab_siswa', getid);
-        res.redirect('/data-siswa');
+        res.redirect('/data-siswa'); 
     }
 
 }

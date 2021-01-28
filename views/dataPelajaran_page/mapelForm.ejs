@@ -1,0 +1,53 @@
+<html>
+    <%- include('../components/style.ejs')  %>
+    
+    <body>
+        <%- include('../components/navbar.ejs')  %>
+
+
+        <div class="container">
+
+            <h1 class="fas fa-table tableTitle"> <%= header %> </h1>
+
+            <form action=<%= actionurl  %> method="POST">
+                <% if (actionurl == '/data-mapel/edit') { %>
+                    <input type="number" name="id" hidden value="<%= id  %>">
+                <% } %>
+                
+
+                <div class="form-group">
+                    <label for="">Mata Pelajaran</label>
+                    <input name="mapel" type="text" class="form-control" required <% if (actionurl == '/data-mapel/edit') { %>
+                        value="<%= mapel %>"
+                    <% } %> 
+                    ></div>
+
+                <div class="form-group">
+                    <label for="">Jurusan</label>
+                    <input name="jurusan" type="text" class="form-control" required <% if (actionurl == '/data-mapel/edit') { %>
+                        value="<%= jurusan %>"
+                    <% } %>  
+                    ></div>
+
+                <div class="form-group">
+                    <label for="">Kelas</label>
+                    <select name="kelas">
+                        <% if(actionurl == '/data-mapel/edit') {%>
+                            <option value=<%= kelas %> >--Default--</option>
+                        <% } %> 
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div> 
+
+                <input type="submit" class="btn btn-success" value="Add">
+                <a href="/data-mapel" class="btn btn-info">Cancel</a>
+            
+            </form>
+        </div>
+            
+
+        <%- include('../components/footer.ejs')  %>
+    </body>
+</html>

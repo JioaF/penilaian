@@ -1,0 +1,48 @@
+<html>
+    <%- include('../components/style.ejs')  %> 
+    <body>
+        <%- include('../components/navbar.ejs') %>
+
+            <div class="container table-responsive">
+                <h1 class="fas fa-table tableTitle"> Data Mapel</h1> <br>
+
+                <a href="/data-mapel/add" class="btn btn-info fas fa-plus-square my-3 px-5"></a>
+
+                <table class="table table-bordered text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>No</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Jurusan</th>
+                            <th>Kelas</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data.length > 0) { %>
+                            <% var i  = 1; %> 
+                            <% data.forEach(el => { %>
+                                <tr>
+                                    <td><%= i  %> </td>
+                                    <td><%= el.mata_pelajaran  %> </td>
+                                    <td><%= el.jurusan  %></td>
+                                    <td><%= el.kelas  %></td>
+                                    <td>
+                                        <a href="/data-mapel/edit/<%=el.id  %> " class="btn btn-success px-4 my-3">Edit</a>
+                                        <a href="/data-mapel/delete/<%=el.id  %> " class="btn btn-danger px-3 ">Delete</a>
+                                    </td>
+                                </tr>
+                            <% i++}) %>
+                        <% }else{ %>
+                                <tr>
+                                    <td>No data found</td>
+                                </tr>
+                            <% } %> 
+                    </tbody>
+                </table>
+            </div>
+
+        <%- include('../components/footer.ejs') %> 
+    </body>
+
+</html>

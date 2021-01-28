@@ -1,0 +1,116 @@
+<html>
+    <%- include('../components/style.ejs') %>
+    <body>
+
+        <%- include('../components/navbar.ejs') %>
+
+        <div class="container">
+            <h1 class="tableTitle my-2 fas fa-table"> <%= text %></h1>
+            
+            <% var editurl = '/data-siswa/edit' %> 
+
+            <form action="<%= actionurl  %>" method="POST">
+                
+                <% if (actionurl == editurl) { %>
+                    <input hidden type="number" name="id" value=<%= id %> >
+                <% } %>
+               
+
+                <div class="form-group">
+                    <label>NIS</label>
+                    <input type="number" name="nis" required class="form-control" <% if (actionurl == editurl) { %>
+                        value="<%= nisn %>"
+                    <% } %>   
+                    ></div>
+                
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama"  required class="form-control" <% if (actionurl == editurl) { %>
+                        value="<%= nama_lengkap  %>"
+                    <% } %>  
+                    ></div>
+                
+                <div class="form-group">
+                    <label>Kelas</label>
+                    <select name="kelas" class="form-control">
+                        <% if (actionurl == editurl) { %>
+                            <option value="<%= kelas %>" >Default</option>
+                        <% } %>
+                        <option value="">--Pilih--</option> 
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                
+               
+                <div class="form-group">
+                    <label>Jurusan</label>
+                    <% if (actionurl == editurl) { %>
+                     
+                   
+                    <div class="form-check">
+                        <label for="" class="form-check-label">
+                            <input type="radio" name="jurusan" value="<%= jurusan %>" checked class="form-check-input">Default
+                        </label>
+                    </div>
+                    <% } %>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Fiktif" required class="form-check-input">Fiktif
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="Ghaib" required class="form-check-input">Ghaib
+                    </label>
+                </div>              
+            </div>
+               
+            <div class="form-group">
+                <label>Tempat Lahir</label>
+                <input type="text" name="tempatl" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
+                    value=<%= tempat_lahir %>
+                <% } %>   
+                ></div>
+        
+            <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <input type="date" name="tgll" required class="form-control" <% if (actionurl == editurl) { %>
+                    value="<%= tanggal_lahir %>"
+                <% } %>   
+                ></div>
+                
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <textarea name="alamat"  cols="30"  required class="form-control">
+                        <% if (actionurl == editurl) { %>
+                            <%= alamat %>
+                        <% } %>  
+                    </textarea>
+                </div>  
+        
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
+                        value=<%= email %>
+                    <% } %>   
+                    ></div>
+        
+               <div class="form-group">
+                   <label>No. Telp</label>
+                    <input type="number" name="notelp" maxlength="15" required class="form-control" <% if (actionurl == editurl) { %>
+                        value=<%= no_telp %>
+                    <% } %>   
+                    ></div>
+                
+               <input type="submit" value="Save" class="btn btn-success">
+               <a href="/data-siswa" class="btn btn-info">Cancel</a>
+    
+            </form>
+    
+        </div>
+        
+        <%- include('../components/footer.ejs'); %> 
+    </body> 
+</html>
