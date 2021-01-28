@@ -1,6 +1,6 @@
 # + mean already fixed
 # - mean not yet fixed
-
+# -+ mean ongoing
 
 things need to remember :
 1. fix input length validation (-)
@@ -11,7 +11,7 @@ things need to remember :
     so the user will cannot use the app if 
     the session is expired.
 
-3. make the design looks prettier (-)
+3. make the design looks prettier (-+)
     atleast can be accepted by average 
     human eyes.
 
