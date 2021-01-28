@@ -47,8 +47,6 @@
                 <div class="form-group">
                     <label>Jurusan</label>
                     <% if (actionurl == editurl) { %>
-                     
-                   
                     <div class="form-check">
                         <label for="" class="form-check-label">
                             <input type="radio" name="jurusan" value="<%= jurusan %>" checked class="form-check-input">Default
@@ -70,7 +68,7 @@
             <div class="form-group">
                 <label>Tempat Lahir</label>
                 <input type="text" name="tempatl" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
-                    value=<%= tempat_lahir %>
+                    value="<%= tempat_lahir %>"
                 <% } %>   
                 ></div>
         
@@ -83,24 +81,22 @@
                 
                 <div class="form-group">
                     <label>Alamat</label>
-                    <textarea name="alamat"  cols="30"  required class="form-control">
-                        <% if (actionurl == editurl) { %>
-                            <%= alamat %>
-                        <% } %>  
-                    </textarea>
-                </div>  
+                    <input type="text" name="alamat" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
+                        value="<%= alamat %>"
+                    <% } %>   
+                    ></div>  
         
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
-                        value=<%= email %>
+                        value="<%= email %>"
                     <% } %>   
                     ></div>
         
                <div class="form-group">
                    <label>No. Telp</label>
                     <input type="number" name="notelp" maxlength="15" required class="form-control" <% if (actionurl == editurl) { %>
-                        value=<%= no_telp %>
+                        value="<%= no_telp %>"
                     <% } %>   
                     ></div>
                 

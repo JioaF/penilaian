@@ -8,7 +8,7 @@ module.exports = {
         })
     },
     dgAddGet : function(req, res){
-        res.render('./dataGuru_page/dg_addPage.ejs', {text : "Tambah Data Guru",});
+        res.render('./dataGuru_page/dg_Form', {text : "Tambah Data Guru", actionurl:'/data-guru/add'});
     },
     dgAddPost : function(req, res){
         var data = {
@@ -28,15 +28,29 @@ module.exports = {
 
     dgEditGet : function(req, res){
         var getid = req.params.id;
-        
-                conn.query('SELECT * FROM tab_guru WHERE id = ?', [getid], function(err, results, fields){
-                    if(err) throw err;
-                            res.render('./dataGuru_page/dg_editPage', 
-                            {
-                                text:"Edit data  Guru",
-                                data:results
-                            });   
-                });        
+        conn.query('SELECT * FROM tab_guru WHERE id = ?', [getid], function(err, results, fields){
+            if(err) throw err;
+            if(results.length > 0){
+                results.forEach(el => {
+                    res.render('./dataGuru_page/dg_Form', 
+                    {
+                        actionurl : '/data-guru/edit',
+                        text:"Edit data  Guru",
+                        id : getid,
+                        nik : el.nik,
+                        nama_guru : el.nama_guru,
+                        pendidikan_terakhir : el.pendidikan_terakhir,
+                        jurusan : el.jurusan,
+                        asal_sekolah : el.asal_sekolah,
+                        alamat : el.alamat,
+                        email : el.email,
+                        no_telp : el.no_telp
+
+                     });   
+                });
+            }
+            
+        });        
         
     },
     dgEditPost : function(req, res){
