@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     user : 'root',
     password : '12345678',
     database : 'db_penilaian_muhammad_salmaan_alfarisi',
-    port : 3308,
+    // port : 3308,
     multipleStatements : true
 });
 

@@ -23,6 +23,9 @@ var dgRouter = require('./routes/data-guru');
 //data mapel router 
 var dmRouter = require('./routes/data-mapel');
 
+//data nilai router
+var dnsRouter = require('./routes/data-nilai');
+
 
 var app = express();
 
@@ -70,6 +73,9 @@ app.use(dgRouter);
 
 //data-maper route 
 app.use(dmRouter);
+
+//data-nilai router
+app.use(dnsRouter);
 
 
 app.use('/logout', logoutRouter);

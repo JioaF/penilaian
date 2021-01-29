@@ -1,0 +1,51 @@
+<html>
+    <%- include('../components/style.ejs')  %> 
+
+    <body>
+        <%- include('../components/navbar.ejs')  %> 
+        <div class="container">
+            <h1 class="fas fa-table tableTitle"></h1> <br>
+
+            <% var editurl = '/data-nilai/edit' %> 
+            <form action= <%= actionurl %> method="POST">
+            
+                <div class="form-group">
+                    <label for="">Nama Siswa</label>
+                    <select name="" id="" class="form-control">
+                        <option>--Pilih--</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Mata Pelajaran</label>
+                    <select name="" id="" class="form-control">
+                        <option value="">--Pilih--</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Nilai UH</label>
+                    <input name="nilai_uh" type="number" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Nilai UTS</label>
+                    <input name="nilai_uts" type="number" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Nilai UAS</label>
+                    <input name="nilai_uas" type="number" class="form-control">
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-success">
+                <a href="/data-nilai" class="btn btn-info">Cancel</a>
+            </form>
+            
+        </div>
+
+        <%- include('../components/footer.ejs') %> 
+    </body>
+</html>

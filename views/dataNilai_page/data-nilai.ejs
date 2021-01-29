@@ -1,0 +1,39 @@
+<html>
+    <%- include('../components/style.ejs')  %> 
+
+    <body>
+        <%- include('../components/navbar.ejs')  %> 
+        <div class="container">
+            <h1 class="fas fa-table tableTitle"> Data Nilai</h1> <br>
+
+            <a href="/data-nilai/add" class="btn btn-info fas fa-plus-square my-3 px-5"></a>
+            <a href="#">Export Excel</a>
+            <a href="#">EXport PDF</a>
+
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No.</th>
+                        <th>NIS</th>
+                        <th>Nama Siswa</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
+                        <th>Nilai UH</th>
+                        <th>Nilai UTS</th>
+                        <th>Nilai UAS</th>
+                        <th>Rata-Rata</th>
+                        <th>Predikat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <%- include('../components/footer.ejs') %> 
+    </body>
+</html>
