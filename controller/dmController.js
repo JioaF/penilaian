@@ -5,10 +5,10 @@ module.exports = {
     dmGet : function(req, res){
         input.read(function(undefined, dataGuru, dataMapel){
             res.render('./dataPelajaran_page/dataMapel',{data : dataMapel});
-    })
+    });
     },
     dmAddGet : function(req, res){
-        res.render('./dataPelajaran_page/mapelForm', {actionurl:'/data-mapel/add', header:'Tambah Data'});
+        res.render('./dataPelajaran_page/mapelForm', {actionurl:req.url, header:'Tambah Data'});
     },
     dmAddPost : function(req, res){
         var data = {

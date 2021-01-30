@@ -27,12 +27,20 @@ module.exports = {
         })
     },
     read : function(callback){
-        conn.query('SELECT * FROM tab_siswa; SELECT * FROM tab_guru; SELECT * FROM tab_pelajaran', function(err, results, fields){
+        conn.query('SELECT * FROM tab_siswa; SELECT * FROM tab_guru; SELECT * FROM tab_pelajaran; SELECT * FROM tab_nilai_siswa', function(err, results, fields){
             if(err) throw err;
             var dataSiswa = results[0];
+            console.log(dataSiswa);
             var dataGuru = results[1];
             var dataPelajaran = results[2];
-            return callback(dataSiswa, dataGuru, dataPelajaran);
+            var dataNilai = results[3];
+            return callback(dataSiswa, dataGuru, dataPelajaran, dataNilai);
         })
     },
+    innerJoin : function(callback){
+        conn.query(sql, function(err, result, fields) {
+            console.log(result)
+            return callback(result);
+        })
+    }
 }

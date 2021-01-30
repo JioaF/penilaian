@@ -43,7 +43,6 @@
                     </select>
                 </div>
                 
-               
                 <div class="form-group">
                     <label>Jurusan</label>
                     <% if (actionurl == editurl) { %>
@@ -55,14 +54,19 @@
                     <% } %>
                 <div class="form-check">
                     <label for="" class="form-check-label">
-                        <input type="radio" name="jurusan" value="Fiktif" required class="form-check-input">Fiktif
+                        <input type="radio" name="jurusan" value="RPL" required class="form-check-input">RPL
                     </label>
                 </div>
                 <div class="form-check">
                     <label for="" class="form-check-label">
-                        <input type="radio" name="jurusan" value="Ghaib" required class="form-check-input">Ghaib
+                        <input type="radio" name="jurusan" value="MM" required class="form-check-input">MM
                     </label>
-                </div>              
+                </div> 
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" name="jurusan" value="TKJ" required class="form-check-input">TKJ
+                    </label>
+                </div>             
             </div>
                
             <div class="form-group">
@@ -75,27 +79,27 @@
             <div class="form-group">
                 <label>Tanggal Lahir</label>
                 <input type="date" name="tgll" required class="form-control" <% if (actionurl == editurl) { %>
-                    value="<%= tanggal_lahir %>"
+                    placeholder="<%= tanggal_lahir %>"
                 <% } %>   
                 ></div>
                 
                 <div class="form-group">
                     <label>Alamat</label>
-                    <input type="text" name="alamat" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
+                    <input type="text" name="alamat" maxlength="50" required class="form-control" placeholder="Jl." <% if (actionurl == editurl) { %>
                         value="<%= alamat %>"
                     <% } %>   
                     ></div>  
         
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" maxlength="50" required class="form-control" <% if (actionurl == editurl) { %>
+                    <input type="email" name="email" maxlength="50" required class="form-control" placeholder="username@example.com" <% if (actionurl == editurl) { %>
                         value="<%= email %>"
                     <% } %>   
                     ></div>
         
                <div class="form-group">
                    <label>No. Telp</label>
-                    <input type="number" name="notelp" maxlength="15" required class="form-control" <% if (actionurl == editurl) { %>
+                    <input type="text" name="notelp" maxlength="15" required class="form-control" placeholder="+62-xxx-xxx-xx" <% if (actionurl == editurl) { %>
                         value="<%= no_telp %>"
                     <% } %>   
                     ></div>

@@ -8,31 +8,31 @@
         <div class="container">
 
             <h1 class="fas fa-table tableTitle"> <%= header %> </h1>
-
+               <% var editurl = '/data-mapel/edit' %>  
             <form action=<%= actionurl  %> method="POST">
-                <% if (actionurl == '/data-mapel/edit') { %>
-                    <input type="number" name="id" hidden value="<%= id  %>">
+                <% if (actionurl == editurl) { %>
+                    <input type="number" hidden name="id" value="<%= id  %>">
                 <% } %>
                 
 
                 <div class="form-group">
                     <label for="">Mata Pelajaran</label>
-                    <input name="mapel" type="text" class="form-control" required <% if (actionurl == '/data-mapel/edit') { %>
+                    <input name="mapel" type="text" class="form-control" required <% if (actionurl == editurl) { %>
                         value="<%= mapel %>"
                     <% } %> 
                     ></div>
 
                 <div class="form-group">
                     <label for="">Jurusan</label>
-                    <input name="jurusan" type="text" class="form-control" required <% if (actionurl == '/data-mapel/edit') { %>
+                    <input name="jurusan" type="text" class="form-control" required <% if (actionurl == editurl) { %>
                         value="<%= jurusan %>"
                     <% } %>  
                     ></div>
 
                 <div class="form-group">
                     <label for="">Kelas</label>
-                    <select name="kelas">
-                        <% if(actionurl == '/data-mapel/edit') {%>
+                    <select name="kelas" class="form-control">
+                        <% if(actionurl == editurl) {%>
                             <option value=<%= kelas %> >--Default--</option>
                         <% } %> 
                         <option value="10">10</option>

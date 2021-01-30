@@ -4,41 +4,67 @@
     <body>
         <%- include('../components/navbar.ejs')  %> 
         <div class="container">
-            <h1 class="fas fa-table tableTitle"></h1> <br>
+            <h1 class="fas fa-table tableTitle"> <%= header  %></h1>  <br>
 
             <% var editurl = '/data-nilai/edit' %> 
             <form action= <%= actionurl %> method="POST">
-            
+                
+                <% if (actionurl == editurl) { %>
+                    <input type="number" name="id" value="<%= id %>">
+                <% } %>
+
                 <div class="form-group">
                     <label for="">Nama Siswa</label>
-                    <select name="" id="" class="form-control">
+                    <select name="nama_lengkap" id="" class="form-control">
                         <option>--Pilih--</option>
-
+                        <% if (dataSiswa.length > 0 ) { %>
+                            <% dataSiswa.forEach(el => { %>
+                             <option value="<%= el.nama_lengkap %>"><%= el.nama_lengkap %> </option>
+                            <% }) %>
+                        <% } %>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="">Mata Pelajaran</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">--Pilih--</option>
+                    <select name="mata_pelajaran" id="" class="form-control">
 
+
+                        <% if (actionurl == editurl) { %>
+                            <option value="">--Default--</option>
+                        <% }else{ %> 
+                        <option value="">--Pilih--</option>
+                            <% } %> 
+
+                            
+                        <% if (dataPelajaran.length > 0 ) { %>
+                            <% dataPelajaran.forEach(el => { %>
+                             <option value="<%= el.mata_pelajaran %>"><%= el.mata_pelajaran %> </option>
+                            <% }) %>
+                        <% } %>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="">Nilai UH</label>
-                    <input name="nilai_uh" type="number" class="form-control">
-                </div>
+                    <input name="nilai_uh" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                            value= <%= nilai_uh %> 
+                    <% } %>
+                    ></div>
 
                 <div class="form-group">
                     <label for="">Nilai UTS</label>
-                    <input name="nilai_uts" type="number" class="form-control">
-                </div>
+                    <input name="nilai_uts" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                            value= <%= nilai_uts %> 
+                    <% } %>
+                    ></div>
 
                 <div class="form-group">
                     <label for="">Nilai UAS</label>
-                    <input name="nilai_uas" type="number" class="form-control">
-                </div>
+                    <input name="nilai_uas" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                            value = <%= nilai_uas %>
+                    <% } %>
+                    ></div>
 
                 <input type="submit" value="Save" class="btn btn-success">
                 <a href="/data-nilai" class="btn btn-info">Cancel</a>

@@ -18,6 +18,7 @@
                         <th>Nama Siswa</th>
                         <th>Kelas</th>
                         <th>Jurusan</th>
+                        <th>MaPel</th>
                         <th>Nilai UH</th>
                         <th>Nilai UTS</th>
                         <th>Nilai UAS</th>
@@ -27,9 +28,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
+                   
+                        <% if (datajoin.length > 0) { %>
+                            <% var i = 1; %> 
+                            <% datajoin.forEach(el => { %>
+                            <tr>
+                                <td><%= i %> </td>
+                                <td><%= el.nis  %> </td>
+                                <td><%= el.nama_lengkap %> </td>
+                                <td><%= el.kelas %> </td>
+                                <td><%= el.jurusan %> </td>
+                                <td><%= el.mata_pelajaran %> </td>
+                                <td><%= el.nilai_uh %> </td>
+                                <td><%= el.nilai_uts %> </td>
+                                <td><%= el.nilai_uas %> </td>
+                                <td><%= Math.floor(el.rata_rata) %> </td>
+                                <td><%= el.predikat %> </td>
+                                <td>
+                                    <a href="/data-nilai/edit/<%=el.id  %> " class="btn btn-success px-4 my-1">Edit</a>
+                                    <a href="/data-nilai/delete/<%=el.id  %> " class="btn btn-danger px-3 ">Delete</a>
+                                </td>
+                            </tr>
+                            <%i++}) %>                           
+                        <% }else{ %>
+                                <td>Data Not found</td>
+                            <% } %> 
+                        
+                    
                 </tbody>
             </table>
         </div>

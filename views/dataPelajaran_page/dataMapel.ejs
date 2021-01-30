@@ -12,6 +12,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>No</th>
+                            <th>Id Pelajaran</th>
                             <th>Mata Pelajaran</th>
                             <th>Jurusan</th>
                             <th>Kelas</th>
@@ -24,6 +25,7 @@
                             <% data.forEach(el => { %>
                                 <tr>
                                     <td><%= i  %> </td>
+                                    <td><%= el.id.toString() %> </td>
                                     <td><%= el.mata_pelajaran  %> </td>
                                     <td><%= el.jurusan  %></td>
                                     <td><%= el.kelas  %></td>

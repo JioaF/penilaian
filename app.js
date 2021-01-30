@@ -59,6 +59,9 @@ app.use('/', indexRouter, function (req, res, next) {
   app.locals.user = req.session.username;
   app.locals.email = req.session.email;
   app.locals.nohp = req.session.nohp;
+  if(app.locals.user == undefined){
+    res.render('lost_conn');
+  }
   next()
 });
 app.use('/users', usersRouter);
