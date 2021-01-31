@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,10 +8,8 @@ var session = require('express-session');
 
 //router file setup
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var logoutRouter = require('./routes/logout');
-var aboutRouter = require('./routes/about');
 var dashboardRouter = require('./routes/dashboard');
 
 //workaround i found after 1 day thingking
@@ -64,7 +63,6 @@ app.use('/', indexRouter, function (req, res, next) {
   }
   next()
 });
-app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
 
@@ -80,9 +78,8 @@ app.use(dmRouter);
 //data-nilai router
 app.use(dnsRouter);
 
-
 app.use('/logout', logoutRouter);
-app.use('/about', aboutRouter);
+
 
 
 /**
