@@ -7,19 +7,15 @@ things need to remember :
     the system will crash if the length of input 
     is exceeding the record type length.
 
-2. add authentication for user login (-) 
+2. add authentication for user login (+) 
     so the user will cannot use the app if 
     the session is expired.
 
-3. make the design looks prettier (-+)
+3. make the design looks prettier (+)
     atleast can be accepted by average 
     human eyes.
 
 4. create middleware for some of tab_user record (-).
 
-5. create pages for individual add and edit so (-)
-    make things easier when having more than 1 table to
-    crud.
-
-6. hash the password to the md5 encryption (-)
+5. hash the password to the md5 encryption (-)
     and make the login form decrypt it everytime want to login.

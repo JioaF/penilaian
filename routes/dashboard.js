@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var conn = require('../controller/database');
-var input = require('../controller/crud');
 
 /**
  * fix the authentication
@@ -12,17 +11,13 @@ router.get('/',function(req, res){
     if(req.session.loggedin == false){
         res.send("Login First");
     }else{
-
-        var user = {
-            user : req.session.username,
-            email : req.session.email,
-            nohp : req.session.nohp
-        }
-
-        res.render('dashboard'); 
-        // input.read(function(email, nomerhp){
-           
-        // });
+        conn.query(
+        `SELECT count(*) as totalsiswa from tab_siswa; 
+        SELECT count(*) as totalguru from tab_guru; 
+        SELECT count(*) as totalmapel from tab_pelajaran`,function (err, results, fields) {
+        if(err)throw err;
+        res.render('dashboard', {siswa:results[0][0].totalsiswa, guru:results[1][0].totalguru, mapel:results[2][0].totalmapel});
+        })
 
     }
     

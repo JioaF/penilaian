@@ -5,6 +5,24 @@
         <div class="container">
             <h1>Welcome to Dashboard</h1>
             <p>this is dashboard.</p>
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Jumlah Siswa</th>
+                        <th>Jumlah Guru</th>
+                        <th>Jumlah Mapel</th>
+                        <th>Jumlah Jurusan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= siswa %> </td>
+                        <td><%= guru %> </td>
+                        <td><%= mapel %> </td>
+                        <td><%= siswa %> </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <%- include('./components/footer.ejs')  %> 

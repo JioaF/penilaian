@@ -13,4 +13,6 @@ router.route(`${dnurl}/edit/:id`).get(dnController.dnEditGet);
 router.route(`${dnurl}/edit/`).post(dnController.dnEditPost)
  
 router.route(`${dnurl}/delete/:id`).get(dnController.del);
+
+
 module.exports = router;

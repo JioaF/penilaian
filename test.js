@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 var conn = require('./controller/database');
 
 
@@ -27,7 +28,7 @@ var sql = `SELECT
 var nama_lengkap = 'desi';
 var mapel = 'Pemrograman Web';
 conn.query(sql, function(err, results, fields){
-        console.log(results);
+        console.log(JSON.stringify(results));
 })
 
 // function pred(value){

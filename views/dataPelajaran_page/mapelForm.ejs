@@ -4,34 +4,36 @@
     <body>
         <%- include('../components/navbar.ejs')  %>
 
-
         <div class="container">
 
             <h1 class="fas fa-table tableTitle"> <%= header %> </h1>
                <% var editurl = '/data-mapel/edit' %>  
             <form action=<%= actionurl  %> method="POST">
-                <% if (actionurl == editurl) { %>
-                    <input type="number" hidden name="id" value="<%= id  %>">
-                <% } %>
                 
+                <div class="form-group">
+                    <label for="">Mapel ID</label>
+                    <input type="number"  name="id" required placeholder="1xx..." class="form-control"<% if (actionurl == editurl) { %>
+                       disabled value="<%= id  %>"
+                        <% } %>  
+                    ></div>
 
                 <div class="form-group">
                     <label for="">Mata Pelajaran</label>
-                    <input name="mapel" type="text" class="form-control" required <% if (actionurl == editurl) { %>
+                    <input name="mapel" type="text" required class="form-control" required <% if (actionurl == editurl) { %>
                         value="<%= mapel %>"
                     <% } %> 
                     ></div>
 
                 <div class="form-group">
                     <label for="">Jurusan</label>
-                    <input name="jurusan" type="text" class="form-control" required <% if (actionurl == editurl) { %>
+                    <input name="jurusan" type="text" required class="form-control" required <% if (actionurl == editurl) { %>
                         value="<%= jurusan %>"
                     <% } %>  
                     ></div>
 
                 <div class="form-group">
                     <label for="">Kelas</label>
-                    <select name="kelas" class="form-control">
+                    <select name="kelas" required class="form-control">
                         <% if(actionurl == editurl) {%>
                             <option value=<%= kelas %> >--Default--</option>
                         <% } %> 

@@ -10,36 +10,38 @@
             <form action= <%= actionurl %> method="POST">
                 
                 <% if (actionurl == editurl) { %>
-                    <input type="number" name="id" value="<%= id %>">
+                    <input type="number" name="id" hidden value="<%= id %>">
                 <% } %>
 
                 <div class="form-group">
                     <label for="">Nama Siswa</label>
+                
                     <select name="nama_lengkap" id="" class="form-control">
+                        <% if (actionurl == editurl) { %>
+                            <option value="<%= id_siswa %>">Default</option>
+                        <% }else{ %>
                         <option>--Pilih--</option>
+                        <% } %> 
                         <% if (dataSiswa.length > 0 ) { %>
                             <% dataSiswa.forEach(el => { %>
-                             <option value="<%= el.nama_lengkap %>"><%= el.nama_lengkap %> </option>
+                             <option value="<%= el.id %>"><%= el.nama_lengkap %> </option>
                             <% }) %>
                         <% } %>
                     </select>
                 </div>
 
                 <div class="form-group">
+                    
                     <label for="">Mata Pelajaran</label>
                     <select name="mata_pelajaran" id="" class="form-control">
-
-
                         <% if (actionurl == editurl) { %>
-                            <option value="">--Default--</option>
-                        <% }else{ %> 
-                        <option value="">--Pilih--</option>
-                            <% } %> 
-
-                            
+                            <option value="<%= id_matapelajaran %>">Default</option>
+                        <% }else{ %>
+                        <option>--Pilih--</option>
+                        <% } %> 
                         <% if (dataPelajaran.length > 0 ) { %>
                             <% dataPelajaran.forEach(el => { %>
-                             <option value="<%= el.mata_pelajaran %>"><%= el.mata_pelajaran %> </option>
+                             <option value="<%= el.id %>"><%= el.mata_pelajaran %> </option>
                             <% }) %>
                         <% } %>
                     </select>
@@ -47,21 +49,21 @@
 
                 <div class="form-group">
                     <label for="">Nilai UH</label>
-                    <input name="nilai_uh" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                    <input name="nilai_uh" type="number" required class="form-control" <% if (actionurl == editurl) { %>
                             value= <%= nilai_uh %> 
                     <% } %>
                     ></div>
 
                 <div class="form-group">
                     <label for="">Nilai UTS</label>
-                    <input name="nilai_uts" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                    <input name="nilai_uts" type="number" required class="form-control" <% if (actionurl == editurl) { %>
                             value= <%= nilai_uts %> 
                     <% } %>
                     ></div>
 
                 <div class="form-group">
                     <label for="">Nilai UAS</label>
-                    <input name="nilai_uas" type="number" class="form-control" <% if (actionurl == editurl) { %>
+                    <input name="nilai_uas" type="number" required class="form-control" <% if (actionurl == editurl) { %>
                             value = <%= nilai_uas %>
                     <% } %>
                     ></div>

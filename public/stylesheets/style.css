@@ -1,7 +1,8 @@
 body {
   /* padding: 50px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('/images/dark.jpg');
+  font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('/images/dark2.jpg');
+  background-size: auto;
 }
 
 /* a {
@@ -13,12 +14,12 @@ body {
   background-color: whitesmoke ;
   padding: 40px;
   border-style: groove;
-  border-color: dimgrey;
+  border-color:lightslategray;
   
 }
 
 .form-group{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .footer{
