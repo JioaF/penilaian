@@ -6,12 +6,12 @@ var mysql = require('mysql');
  */
 
 var connection = mysql.createConnection({
-    host : 'localhost',
+    host : 'localhost', 
     user : 'root',
-    password : '',
+    password : '123456', 
     database : 'db_penilaian_muhammad_salmaan_alfarisi',
-    // port : 3308,
-    multipleStatements : true
+    // port : 3306,
+    multipleStatements : true 
 });
 
 module.exports = connection; 
