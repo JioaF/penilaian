@@ -1,5 +1,7 @@
 #Projek untuk Sekolah
 
+Sebuah website untuk mengatur administrasi sekolah
+
 Jika ingin tahu bagaimana cara menjalankan atau mengaksek aplikasi ini.
 maka disarankan mendownload nodejs version  14.15.4 LTS.
 
