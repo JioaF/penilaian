@@ -1,4 +1,4 @@
-#Projek untuk Sekolah
+# Projek untuk Sekolah
 
 Sebuah website untuk mengatur administrasi sekolah
 
